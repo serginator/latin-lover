@@ -23,5 +23,5 @@
 
 
     // esto es un wd
-
-    w(file_get_contents(DIR . '/app/bootstrap.php'));
+    $test = array('hola' => 3, 'quetal' => 'lol');
+    wd($test);
