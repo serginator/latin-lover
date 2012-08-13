@@ -1,0 +1,23 @@
+<VirtualHost *:80>
+	ServerName latin-lover
+	DocumentRoot /tu/path/hasta/app
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	<Directory /tu/path/hasta/app/>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+
+		#front controller !
+		RewriteEngine on
+		RewriteCond $1 !^(index\.php|lib|parts|pages|images|robots\.txt)
+		RewriteRule ^(.*)$ /tu/path/hasta/app/index.php/$1 [L]
+	</Directory>
+
+	# ErrorLog ${APACHE_LOG_DIR}/error.log
+
+
+</VirtualHost>
